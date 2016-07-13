@@ -2,6 +2,12 @@
 
 module.exports = function(environment) {
   var ENV = {
+    firebase: {
+      apiKey: "AIzaSyBvdiz729ZWt5XUHQhsaEeR1MrO53Q_FyA",
+      authDomain: "emberitas-color-palette.firebaseapp.com",
+      databaseURL: "https://emberitas-color-palette.firebaseio.com",
+      storageBucket: "emberitas-color-palette.appspot.com"
+    },
     modulePrefix: 'color-palette',
     environment: environment,
     baseURL: '/',

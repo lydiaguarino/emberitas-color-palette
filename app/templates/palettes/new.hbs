@@ -1,0 +1,38 @@
+<h1>{{model.name}}</h1>
+<form {{action 'savePalette' on='submit'}}>
+  <h2>Palette Name</h2>
+  {{input value=model.name class="palette-name-input form-control" type="text" placeholder="New Palette"}}
+
+  <h2>Palette Preview</h2>
+  <div class="btn-group color-palette">
+    {{#each model.colors as |color|}}
+      <button class="btn" type="button" style={{color.styleString}} {{action 'setFocusColor' color}}>{{color.labelString}}</button>
+    {{/each}}
+  </div>
+
+  <h2>Edit Color</h2>
+  <div class="btn-group">
+    <div class="btn preview-tile" style={{focusColor.styleString}}></div>
+  </div>
+  <div class="color-input-group">
+    <span class="color-input-label">R</span>
+    {{input value=focusColor.r class="color-text-input form-control" maxlength="3" type="text"}}
+    {{input value=focusColor.r class="color-range-input pull-right" type="range" step=1 min=0 max=255}}
+  </div>
+  <div class="color-input-group">
+    <span class="color-input-label">G</span>
+    {{input value=focusColor.g class="color-text-input form-control" maxlength="3" type="text"}}
+    {{input value=focusColor.g class="color-range-input pull-right" type="range" step=1 min=0 max=255}}
+  </div>
+  <div class="color-input-group">
+    <span class="color-input-label">B</span>
+    {{input value=focusColor.b class="color-text-input form-control" maxlength="3" type="text"}}
+    {{input value=focusColor.b class="color-range-input pull-right" type="range" step=1 min=0 max=255}}
+  </div>
+
+  <div class="btn-group form-actions" role="group">
+    {{#link-to 'palettes' class="btn"}}Cancel{{/link-to}}
+    <button disabled=true class="btn" href="palettes.html">Delete</button>
+    <input class="btn" type="submit" value="Save">
+  </div>
+</form>

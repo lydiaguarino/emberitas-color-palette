@@ -1,0 +1,19 @@
+<h1>Color Palettes</h1>
+
+<h2>Add a Palette</h2>
+{{#link-to 'palettes.new' class="btn-group color-palette empty-palette"}}
+  <div class="btn"></div>
+  <div class="btn"></div>
+  <div class="btn"></div>
+  <div class="btn"></div>
+  <div class="btn"></div>
+{{/link-to}}
+
+{{#each model as |palette|}}
+  <h2>{{palette.name}}</h2>
+  {{#link-to 'palettes.edit' palette.id class="btn-group color-palette"}}
+    {{#each palette.colors as |color|}}
+      <button class="btn" type="button" style={{color.styleString}} >{{color.labelString}}</button>
+    {{/each}}
+  {{/link-to}}
+{{/each}}

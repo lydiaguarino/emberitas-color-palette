@@ -6,8 +6,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('palettes');
-  this.route('palette');
+  this.route('palettes', function() {
+    this.route('new');
+    this.route('edit', { path: '/palettes/:palette_id' });
+  });
 });
 
 export default Router;

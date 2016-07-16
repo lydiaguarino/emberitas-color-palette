@@ -4,6 +4,6 @@ import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   name: attr({ defaultValue: 'New Palette' }),
-  creator: attr({ defaultValue: 'Lydia' }),
+  creator: attr({ defaultValue: 'Fixture' }),
   colors: hasMany('color', {async: false})
 });

@@ -1,9 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model() {
-    var m = this.store.query('palette', {creator:'Lydia'});
-    console.log(m);
-    return m;
+  model: function() {
+    return this.store.query('palette', {
+      orderBy: 'creator',
+      equalTo: 'Fixture'
+    });
   }
 });
